@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:travelmate_flutter/pages/favorites_page.dart';
+import 'package:travelmate_flutter/pages/favorites/favorites_page.dart';
 import 'package:travelmate_flutter/pages/home/home_page.dart';
 import 'package:travelmate_flutter/providers/places_provider.dart';
 
