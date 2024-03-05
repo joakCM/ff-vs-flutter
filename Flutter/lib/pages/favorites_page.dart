@@ -14,7 +14,7 @@ class FavoritesPage extends StatefulWidget {
 class _FavoritesPageState extends State<FavoritesPage> {
   @override
   Widget build(BuildContext context) {
-    final favoritePlaces = Provider.of<PlacesModel>(context).favoritePlaces;
+    final favoritePlaces = context.watch<PlacesProvider>().favoritePlaces;
 
     return Scaffold(
       appBar: const CustomAppBar(title: 'Favorites'),

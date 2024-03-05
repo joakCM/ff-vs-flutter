@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:travelmate_flutter/data/places/place.dart';
 import 'package:travelmate_flutter/data/places/places.dart';
 
-class PlacesModel extends ChangeNotifier {
+class PlacesProvider extends ChangeNotifier {
   String _searchTerm = '';
   List<Place> _places = placesList;
   final List<Place> _favoritePlaces = [];

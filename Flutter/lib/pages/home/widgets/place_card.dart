@@ -16,7 +16,7 @@ class PlaceCard extends StatefulWidget {
 class _PlaceCardState extends State<PlaceCard> {
   @override
   Widget build(BuildContext context) {
-    final favoritePlaces = Provider.of<PlacesModel>(context).favoritePlaces;
+    final favoritePlaces = context.read<PlacesProvider>().favoritePlaces;
 
     final place = widget.place;
     final name = place.name;
@@ -81,27 +81,24 @@ class _PlaceCardState extends State<PlaceCard> {
     );
   }
 
-  Consumer<PlacesModel> _buildFavoriteIcon({
+  IconButton _buildFavoriteIcon({
     required List<Place> favoritePlaces,
     required Place place,
   }) {
-    return Consumer<PlacesModel>(
-      builder: (context, placesModel, child) {
-        final isInFavorites = favoritePlaces.contains(place);
+    final placesProvider = context.read<PlacesProvider>();
+    final isInFavorites = favoritePlaces.contains(place);
 
-        return IconButton(
-          icon: Icon(
-            isInFavorites ? Icons.star : Icons.star_border,
-            color: Colors.amber,
-          ),
-          onPressed: () {
-            if (isInFavorites) {
-              placesModel.removeFromFavorites(place);
-            } else {
-              placesModel.addToFavorites(place);
-            }
-          },
-        );
+    return IconButton(
+      icon: Icon(
+        isInFavorites ? Icons.star : Icons.star_border,
+        color: Colors.amber,
+      ),
+      onPressed: () {
+        if (isInFavorites) {
+          placesProvider.removeFromFavorites(place);
+        } else {
+          placesProvider.addToFavorites(place);
+        }
       },
     );
   }

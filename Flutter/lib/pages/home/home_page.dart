@@ -15,6 +15,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final places = context.watch<PlacesProvider>().places;
+
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'TravelMate',
@@ -26,13 +28,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             const PlacesSearch(),
             const SizedBox(height: 14),
-            Consumer<PlacesModel>(
-              builder: (context, placesModel, child) {
-                final placesList = placesModel.places;
-
-                return PlacesList(places: placesList);
-              },
-            ),
+            PlacesList(places: places),
           ],
         ),
       ),

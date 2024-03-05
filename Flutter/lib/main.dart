@@ -8,7 +8,7 @@ import 'package:travelmate_flutter/providers/places_provider.dart';
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => PlacesModel(),
+      create: (context) => PlacesProvider(),
       child: const TravelMate(),
     ),
   );

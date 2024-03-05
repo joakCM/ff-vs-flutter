@@ -7,7 +7,7 @@ class PlacesSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<PlacesModel>(
+    return Consumer<PlacesProvider>(
       builder: (context, placesModel, child) {
         return TextField(
           decoration: InputDecoration(
